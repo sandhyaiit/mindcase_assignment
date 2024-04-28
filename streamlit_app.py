@@ -137,13 +137,13 @@ llm = HuggingFacePipeline(
     model_kwargs={"temperature": 0, "max_length": 1024},
 )
 
-llm = LlamaCpp(
-   model_path="dolphin-2.2.1-mistral-7B-GGUF/dolphin-2.2.1-mistral-7b.Q5_K_M.gguf",
-   temperature=0.0,
-   n_ctx=8192,
-   n_gpu_layers=1,
-   streaming=True
-)
+# llm = LlamaCpp(
+#    model_path="dolphin-2.2.1-mistral-7B-GGUF/dolphin-2.2.1-mistral-7b.Q5_K_M.gguf",
+#    temperature=0.0,
+#    n_ctx=8192,
+#    n_gpu_layers=1,
+#    streaming=True
+# )
 
 qa_chain = ConversationalRetrievalChain.from_llm(
     llm, chain_type='stuff', retriever=retriever, memory=memory
